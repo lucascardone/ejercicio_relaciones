@@ -15,5 +15,6 @@ public class Rubro extends EntidadBase {
     private String denominacion;
 
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name ="productosId")
     private List<Producto> productos = new ArrayList<>();
 }

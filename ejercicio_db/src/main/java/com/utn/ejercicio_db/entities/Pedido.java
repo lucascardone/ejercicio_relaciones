@@ -29,5 +29,6 @@ public class Pedido extends EntidadBase {
     private Factura factura;
 
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pedidosId")
     private List<DetallePedido> detallesPedidos = new ArrayList<>();
 }

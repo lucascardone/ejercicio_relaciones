@@ -17,6 +17,7 @@ public class DetallePedido extends EntidadBase {
     private Double subtotal;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "productoId")
     private Producto producto;
 
 }

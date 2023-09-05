@@ -20,8 +20,10 @@ public class Domicilio extends EntidadBase {
     private String localidad;
 
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pedidosId")
     private List<Pedido> pedidos = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "clienteId")
     private Cliente cliente;
 }

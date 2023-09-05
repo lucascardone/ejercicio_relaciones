@@ -28,5 +28,6 @@ public class Producto extends EntidadBase{
     private String foto;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "rubroId")
     private Rubro rubro;
 }

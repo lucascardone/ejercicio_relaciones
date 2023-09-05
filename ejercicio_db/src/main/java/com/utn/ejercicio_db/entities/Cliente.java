@@ -25,5 +25,6 @@ public class Cliente extends EntidadBase {
     private String telefono;
 
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pedidosId")
     private List<Pedido> pedidos = new ArrayList<>();
 }
