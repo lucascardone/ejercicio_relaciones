@@ -113,7 +113,7 @@ public class EjercicioDbApplication {
 
                 Cliente cliente = Cliente.builder()
                         .nombre("Lucas")
-                        .apellido("Mastropiestro")
+                        .apellido("Cardone")
                         .email("lucascardone14@gmail.com")
                         .telefono("2615510775")
                         .pedidos(new ArrayList<>())
