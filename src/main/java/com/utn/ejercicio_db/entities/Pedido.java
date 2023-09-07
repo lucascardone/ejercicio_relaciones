@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.utn.ejercicio_db.utils.Estado;
+import com.utn.ejercicio_db.utils.TipoEnvio;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +23,7 @@ public class Pedido extends EntidadBase {
     private Estado estado;
     private String horaEstimadaEntrega;
     //(delivery - retira)
-    private String tipoEnvio;
+    private TipoEnvio tipoEnvio;
     private Double total;
 
     @OneToOne(fetch = FetchType.EAGER)
