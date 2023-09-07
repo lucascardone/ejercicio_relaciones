@@ -4,6 +4,8 @@ import com.utn.ejercicio_db.entities.Factura;
 import com.utn.ejercicio_db.entities.Pedido;
 import com.utn.ejercicio_db.entities.Usuario;
 import com.utn.ejercicio_db.repositories.*;
+import com.utn.ejercicio_db.utils.Estado;
+import com.utn.ejercicio_db.utils.TipoEnvio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -63,8 +65,8 @@ public class EjercicioDbApplication {
                 Pedido pedido = Pedido.builder()
                         .fecha(LocalDate.now().toString())
                         .total(1200.32)
-                        .tipoEnvio("delivery")
-                        .estado("en preparacion")
+                        .tipoEnvio(TipoEnvio.DELIVERY)
+                        .estado(Estado.PREPARADO)
                         .horaEstimadaEntrega("15:00")
                         .factura(factura)
                         .build();
