@@ -1,5 +1,6 @@
 package com.utn.ejercicio_db.entities;
 
+import com.utn.ejercicio_db.utils.Tipo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Producto extends EntidadBase{
     // (Manufacturada - insumo)
-    private String tipo;
+    private Tipo tipo;
     private int tiempoEstimadoCocina;
     private String denominacion;
     private Double precioVenta;
