@@ -110,6 +110,25 @@ public class EjercicioDbApplication {
                         .build();
                 usuario.getPedidos().add(pedido);
                 usuarioRepository.save(usuario);
+
+                Cliente cliente = Cliente.builder()
+                        .nombre("Lucas")
+                        .apellido("Mastropiestro")
+                        .email("lucascardone14@gmail.com")
+                        .telefono("2615510775")
+                        .pedidos(new ArrayList<>())
+                        .build();
+                clienteRepository.save(cliente);
+
+                Domicilio domicilio = Domicilio.builder()
+                        .calle("Siempreviva")
+                        .localidad("Springfield")
+                        .numero("3123")
+                        .pedidos(new ArrayList<>())
+                        .cliente(cliente)
+                        .build();
+                domicilio.getPedidos().add(pedido);
+                domicilioRepository.save(domicilio);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
