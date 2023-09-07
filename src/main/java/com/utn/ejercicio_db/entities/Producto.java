@@ -1,10 +1,7 @@
 package com.utn.ejercicio_db.entities;
 
 import com.utn.ejercicio_db.utils.Tipo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Producto extends EntidadBase{
     // (Manufacturada - insumo)
+    @Enumerated(EnumType.STRING)
     private Tipo tipo;
     private int tiempoEstimadoCocina;
     private String denominacion;
@@ -29,6 +27,6 @@ public class Producto extends EntidadBase{
     private String foto;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "rubroId")
+    @JoinColumn(name = "productoId")
     private Rubro rubro;
 }

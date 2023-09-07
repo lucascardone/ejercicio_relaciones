@@ -20,7 +20,7 @@ public class Usuario extends EntidadBase {
     private String rol;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "pedidosId")
+    @JoinColumn(name = "usuarioId")
     private List<Pedido> pedidos = new ArrayList<>();
 
     @Override

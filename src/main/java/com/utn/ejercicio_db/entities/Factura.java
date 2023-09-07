@@ -2,6 +2,8 @@ package com.utn.ejercicio_db.entities;
 
 import com.utn.ejercicio_db.utils.FormaPago;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +24,7 @@ public class Factura extends EntidadBase {
     private int numero;
     private Double descuento;
     //(efectivo - etc)
+    @Enumerated(EnumType.STRING)
     private FormaPago formaPago;
     private int total;
 

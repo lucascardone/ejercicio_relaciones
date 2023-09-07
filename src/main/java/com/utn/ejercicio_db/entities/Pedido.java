@@ -20,9 +20,11 @@ public class Pedido extends EntidadBase {
 
     private String fecha;
     //(iniciado - preparacion - entregado)
+    @Enumerated(EnumType.STRING)
     private Estado estado;
     private String horaEstimadaEntrega;
     //(delivery - retira)
+    @Enumerated(EnumType.STRING)
     private TipoEnvio tipoEnvio;
     private Double total;
 

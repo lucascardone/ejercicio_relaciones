@@ -25,6 +25,6 @@ public class Cliente extends EntidadBase {
     private String telefono;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "pedidosId")
+    @JoinColumn(name = "clienteId")
     private List<Pedido> pedidos = new ArrayList<>();
 }
