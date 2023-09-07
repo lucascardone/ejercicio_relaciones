@@ -50,11 +50,9 @@ public class EjercicioDbApplication {
     }
 
     @Bean
-    CommandLineRunner init() {
+    CommandLineRunner demo() {
         return args -> {
-
             try {
-                ArrayList<Producto> productos = new ArrayList<>();
 
                 Factura factura = Factura.builder()
                         .numero(0012)
@@ -77,7 +75,6 @@ public class EjercicioDbApplication {
                         .unidadMedida("gr")
                         .build();
                 productoRepository.save(producto);
-                productos.add(producto);
 
                 DetallePedido detallePedido = DetallePedido.builder()
                         .producto(producto)
@@ -88,8 +85,9 @@ public class EjercicioDbApplication {
 
                 Rubro rubro = Rubro.builder()
                         .denominacion("Gastronomico")
-                        .productos(productos)
+                        .productos(new ArrayList<>())
                         .build();
+                rubro.getProductos().add(producto);
                 rubroRepository.save(rubro);
 
                 Pedido pedido = Pedido.builder()
@@ -99,17 +97,18 @@ public class EjercicioDbApplication {
                         .estado(Estado.PREPARADO)
                         .horaEstimadaEntrega("15:00")
                         .factura(factura)
+                        .detallesPedidos(new ArrayList<>())
                         .build();
-                List<Pedido> pedidos = new ArrayList<>();
-                pedidos.add(pedido);
+                pedido.getDetallesPedidos().add(detallePedido);
                 pedidoRepository.save(pedido);
 
                 Usuario usuario = Usuario.builder()
                         .nombre("Lucas")
-                        .pedidos(pedidos)
+                        .pedidos(new ArrayList<>())
                         .rol("usuario")
                         .password("psw2012")
                         .build();
+                usuario.getPedidos().add(pedido);
                 usuarioRepository.save(usuario);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
